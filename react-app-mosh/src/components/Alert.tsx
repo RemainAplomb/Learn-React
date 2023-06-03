@@ -36,6 +36,11 @@
 //      -
 import React, { ReactNode } from "react";
 
+// Importing useState for Hooks
+import { useState } from "react";
+
+import Button from "./Button";
+
 //  If you want to use the Alert element like this:
 //      - <Alert>Some Word</Alert>
 //  You should edit AlertProps
@@ -47,10 +52,48 @@ import React, { ReactNode } from "react";
 //      - children: ReactNode
 interface AlertProps {
   children: ReactNode;
+  alertType?:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "danger"
+    | "warning"
+    | "info"
+    | "light"
+    | "dark"
+    | "link";
 }
 
-const Alert = ({ children }: AlertProps) => {
-  return <div className="alert alert-primary">{children}</div>;
+const Alert = ({ children, alertType = "primary" }: AlertProps) => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleClickButton = () => {
+    console.log("Visibility before: ", isVisible);
+    setIsVisible(!isVisible);
+  };
+
+  return (
+    <>
+      {isVisible && (
+        <div
+          className={`alert alert-${alertType} alert-dismissible fade show`}
+          role="alert"
+        >
+          <strong>Holy guacamole!</strong> You should check in on some of those
+          fields below.
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            onClick={handleClickButton}
+          ></button>
+        </div>
+      )}
+
+      <Button onClickButton={handleClickButton}>Exercise 2</Button>
+    </>
+  );
 };
 
 export default Alert;

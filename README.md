@@ -11,8 +11,8 @@
     Folder name: react-app-mosh
     React Environment: vite@4.1.0
     Github: https://github.com/RemainAplomb
-    Retrieved from: https://www.youtube.com/watch?v=SqcY0GlETPk
     Tutorial by: Programming with Mosh
+    Retrieved from: https://www.youtube.com/watch?v=SqcY0GlETPk
 
 ## React Environment (Environment already in this repository)
 

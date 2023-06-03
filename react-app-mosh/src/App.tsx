@@ -8,6 +8,9 @@ import ListGroup from "./components/ListGroup";
 //  Bootstrap: Alert
 import Alert from "./components/Alert";
 
+//  Bootstrap: Buttons
+import Button from "./components/Button";
+
 //  Root Component
 function App() {
   //  If we are using Message.tsx
@@ -37,11 +40,18 @@ function App() {
   //    =========================================================
   //    Passing Children
   //
+  const handleClickButton = (item: any) => {
+    console.log(item);
+  };
+
   return (
     <div>
       <Alert>
         Wehhhh <span>Ngek</span>
       </Alert>
+      <Button onClickButton={handleClickButton}>
+        Exercise <span>1</span>
+      </Button>
     </div>
   );
 }
